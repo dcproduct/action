@@ -7,13 +7,15 @@ import (
 
 const dataFile = "data/data.json"
 
+// Feed is search type struct
 type Feed struct {
-	Name 	string	`json:"site"`
-	URI		string	`json:"link"`
-	Type	string	`json:"type"`
+	Name string `json:"site"`
+	URI  string `json:"link"`
+	Type string `json:"type"`
 }
 
-func RetrieveFeeds() ([]*Feed, error)  {
+// RetrieveFeeds retrieve all feed from a data file.
+func RetrieveFeeds() ([]*Feed, error) {
 	file, err := os.Open(dataFile)
 	if err != nil {
 		return nil, err
@@ -24,5 +26,5 @@ func RetrieveFeeds() ([]*Feed, error)  {
 	var feeds []*Feed
 	err = json.NewDecoder(file).Decode(&feeds)
 
-	return feeds, err;
+	return feeds, err
 }

@@ -7,6 +7,7 @@ import (
 
 var matchers = make(map[string]Matcher)
 
+// Run perform search logic
 func Run(searchTerm string)  {
 	feeds, err := RetrieveFeeds()
 	if err != nil {
@@ -39,6 +40,7 @@ func Run(searchTerm string)  {
 	Display(results)
 }
 
+// Register register matcher correspond to feed type.
 func Register(feedType string, matcher Matcher)  {
 	if _, exists := matchers[feedType]; exists {
 		log.Fatalln(feedType, "Matcher already registered")
