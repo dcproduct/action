@@ -1,0 +1,2 @@
+Test file for words counting program.
+This is a test data file.
